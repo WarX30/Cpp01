@@ -7,7 +7,10 @@ HumanB::HumanB(std::string name) : _name(name)
 	_weapon = NULL;
 }
 
-HumanB::~HumanB() {}
+HumanB::~HumanB()
+{
+	std::cout << "HumanB Died." << std::endl;
+}
 
 void HumanB::setWeapon(Weapon &weapon)
 {

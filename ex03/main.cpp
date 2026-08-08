@@ -24,10 +24,22 @@ int	main()
 	{
 		int	n = 4;
 		Weapon *club = new Weapon[n];
-		HumanA *jean = new HumanA("Jean", club[1]);
-		club[1].getType();
-		club[1].setType("crude spicked club");
+		HumanA *jean = new HumanA("Jean", club[0]);
+		club[0].setType("crude spicked club");
+		std::cout << club[0].getType() << std::endl;
 		jean->attack();
+		delete jean;
+		HumanA** wariss = new HumanA*[2];
+		for (int i = 0; i < 2; i++)
+			wariss[i] = new HumanA("wariss", club[i]);
+		club[1].setType("some other type of club");
+		club[2].setType("crude spicked club");
+		wariss[0]->attack();
+		wariss[1]->attack();
+		for (int i = 0; i < 2; i++)
+			delete wariss[i];
+		delete[] wariss;
+		delete[] club;
 	}
 	return (0);
 }
